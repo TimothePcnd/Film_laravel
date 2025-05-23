@@ -1,8 +1,8 @@
 <x-layout>{{--@extends('layouts.app')
 
 @section('content')--}}
-    <div class="container">
-        <h1>Create Movie</h1>
+
+        <h2 class="display-6 my-2">Create Movie</h2>
         <form action="{{ route('movies.store') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -26,6 +26,6 @@
             @method('POST')
             <button type="submit" class="btn btn-success">Save</button>
         </form>
-    </div>
+
 {{--@endsection--}}
 </x-layout>
