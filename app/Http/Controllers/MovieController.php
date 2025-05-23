@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -23,12 +24,18 @@ class MovieController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'commentaire' => 'required|string',
-            'note' => 'required|float',
+            'note' => 'required|numeric',
             'annee' => 'required|date',
 
         ]);
 
-        Movie::create($request->all());
+
+        DB::table('movies')->insert([
+            'title' => $request->title,
+            'commentaire' => $request->commentaire,
+            'annee' => $request->annee,
+            'note' => $request->note
+        ]);
         return redirect()->route('movies.index')->with('success', 'Movie created successfully.');
     }
 
@@ -46,7 +53,15 @@ class MovieController extends Controller
             'annee' => 'required|date',
         ]);
 
-        $movie->update($request->all());
+        /*$movie->update($request->all());*/
+        DB::table('movies')
+            ->where('id', $movie->id)
+            ->update([
+            'title' => $request->title,
+            'commentaire' => $request->commentaire,
+            'annee' => $request->annee,
+            'note' => $request->note
+        ]);
         return redirect()->route('movies.index')->with('success', 'Movie updated successfully.');
     }
 
