@@ -1,4 +1,4 @@
-{{--@extends('layouts.app')
+<x-layout>{{--@extends('layouts.app')
 
 @section('content')--}}
     <div class="container">
@@ -10,16 +10,16 @@
                 <input type="text" name="title" id="title" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="description">Commentaire</label>
-                <textarea name="description" id="description" class="form-control" required></textarea>
+                <label for="commentaire">Commentaire</label>
+                <textarea name="commentaire" id="commentaire" class="form-control" required></textarea>
             </div>
             <div class="form-group">
-                <label for="date">Année</label>
-                <input type="date" name="date" id="date" class="form-control" required>
+                <label for="annee">Année</label>
+                <input type="date" name="annee" id="annee" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="number">Note</label>
-                <input type="number" name="number" id="number" class="form-control" required>
+                <label for="note">Note</label>
+                <input type="text" name="note" id="note" class="form-control" required>
             </div>
 
 
@@ -28,3 +28,4 @@
         </form>
     </div>
 {{--@endsection--}}
+</x-layout>

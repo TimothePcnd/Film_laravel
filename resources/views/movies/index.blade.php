@@ -1,3 +1,5 @@
+<x-layout>
+
 {{--@extends('layouts.app')
 
 @section('content')--}}
@@ -10,8 +12,9 @@
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Description</th>
-                    <th>Status</th>
+                    <th>Commentaire</th>
+                    <th>Année</th>
+                    <th>Note</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -19,11 +22,12 @@
                 @foreach ($movies as $movie)
                     <tr>
                         <td>{{ $movie->title }}</td>
-                        <td>{{ $movie->description }}</td>
-                        <td>{{ $movie->status }}</td>
+                        <td>{{ $movie->commentaire }}</td>
+                        <td>{{ $movie->annee }}</td>
+                        <td>{{ $movie->note }}</td>
                         <td>
-                            <a href="{{ route('$movies.edit', $movie->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('$movies.destroy', $movie->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -38,3 +42,5 @@
         @endif
     </div>
 {{--@endsection--}}
+
+</x-layout>
